@@ -1,0 +1,111 @@
+@import "./variables";
+
+a {
+  font-size: 18px;
+  margin: 0 15px;
+  color: $mainColor;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+  &:hover {
+    border-bottom: $mainColor 1px solid;
+    padding-bottom: 4px;
+  }
+}
+.sticky {
+  position: fixed;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  max-width: 80%;
+  transition: all 0.3s ease-in;
+}
+.btn {
+  background: $btnColor;
+  color: $mainColor;
+  font-weight: 700;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px;
+  outline-style: none;
+  margin-right: 20px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  &:hover {
+    background: rgb(56, 104, 207);
+  }
+}
+
+.zip-btn {
+  border: none;
+  width: 200px;
+  height: 62px;
+  background: $mainColor;
+  color: #808080;
+  border-radius: 2rem;
+  padding-left: 1.5rem;
+  padding: 1px 0 0 20px;
+  box-shadow: rgba($color: #333, $alpha: 0.1) 1px 1px 1px 1.5px;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease-in;
+  &::before {
+    transition: all 0.3s ease-in;
+    content: "";
+    width: 0;
+    height: 100%;
+    background: $secondaryColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    // z-index: -1;
+  }
+  &:hover {
+    color: $mainColor;
+    box-shadow: none;
+    border-radius: 2rem;
+    &::before {
+      background-color: $secondaryColor;
+      width: 100%;
+      border-radius: inherit;
+    }
+  }
+  span {
+    position: relative;
+    z-index: 1;
+  }
+  img {
+    max-width: 100px;
+    padding-left: 3rem;
+    transform: translateX(5px);
+  }
+}
+.dog-btn {
+  background: $mainColor;
+  color: $secondaryColor;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px;
+  outline-style: none;
+  margin-right: 20px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  &:hover {
+    background: darken($color: $secondaryColor, $amount: 1);
+    color: $mainColor;
+  }
+}
+.email-btn {
+  height: 40px;
+  display: block;
+  img {
+    width: 40px;
+    transform: translateX(-1px);
+  }
+  &:hover {
+    color: $secondaryColor;
+
+    &::before {
+      display: none;
+    }
+  }
+}

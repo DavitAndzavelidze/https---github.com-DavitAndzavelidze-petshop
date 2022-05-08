@@ -1,0 +1,270 @@
+@import "./media";
+
+.bg-wrapper {
+  position: relative;
+  .bg2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 180%;
+    margin: -25%;
+    transform: translateY(40rem);
+    z-index: -1;
+    @media (max-width: $medium) {
+      width: 250%;
+      margin: -50%;
+      transform: translateY(-10rem);
+    }
+    @media (max-width: $small) {
+      transform: translateY(-30rem);
+    }
+  }
+}
+.service-box {
+  @include Flex(row, space-around);
+  margin-top: 10rem;
+  position: relative;
+  // Footprint Walk Animation Start
+  .footprint {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    animation: walk 5s steps(10, end) infinite, walkopacity 2s ease-out infinite;
+    text-align: center;
+    z-index: -2;
+    img {
+      max-width: 40%;
+    }
+  }
+  .right {
+    margin: 5rem;
+    animation-delay: 250ms;
+  }
+  .footdirection {
+    animation-direction: reverse;
+  }
+  .move {
+    animation-delay: 500ms !important;
+  }
+  @keyframes walk {
+    to {
+      transform: translateX(100vw);
+    }
+  }
+  @keyframes walkopacity {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+  // Footprint Walk Animation End
+  .dashed {
+    position: absolute;
+    left: 0;
+    margin-left: 3rem;
+    z-index: -1;
+  }
+  .box-vertical {
+    margin-left: 5rem;
+    flex-wrap: wrap;
+    .left {
+      transform: translateX(-15rem);
+    }
+    span {
+      color: #808080;
+      font-weight: 200;
+    }
+    .icons {
+      @include Flex(column, space-around);
+      width: 200px;
+      height: 200px;
+      border: 1px $mainColor solid;
+      border-radius: 1rem;
+      margin: 10px;
+      background: $mainColor;
+      box-shadow: rgba($color: #333, $alpha: 0.1) 1px 1px 1px 1.5px;
+      &:hover {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        cursor: pointer;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateX(50%);
+      width: 800px;
+      height: 800px;
+      background: #ffe530;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    @media (max-width: $large) {
+      margin-left: 15rem;
+    }
+    @media (max-width: $xs-small) {
+      .content-box {
+        width: 100%;
+      }
+    }
+  }
+  .services {
+    width: 350px;
+    margin-top: -10rem;
+    margin-right: 10px;
+
+    h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: $secondaryColor;
+    }
+    p {
+      max-width: 300px;
+      font-weight: 300;
+      color: #808080;
+      line-height: 1.5;
+      margin: 1rem 0;
+    }
+    .secondaryColor {
+      color: $secondaryColor;
+    }
+    @media (max-width: $xs-small) {
+      @include Flex(column, center);
+      text-align: center;
+      h2 {
+        font-size: 40px;
+        margin-top: 3rem;
+      }
+    }
+  }
+  .service-content {
+    @include Flex(row, center);
+    max-width: 526px;
+    flex-wrap: wrap;
+    .content-box {
+      @include Flex(column, center);
+      text-align: center;
+      width: 200px;
+      height: 200px;
+      border: 1px $mainColor solid;
+      border-radius: 1rem;
+      margin: 10px;
+      background: $mainColor;
+      box-shadow: rgba($color: #333, $alpha: 0.1) 1px 1px 1px 1.5px;
+      &:hover {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        cursor: pointer;
+      }
+      span {
+        @include Flex(column, center);
+        font-weight: 200;
+        color: #808080;
+      }
+      img {
+        width: 80px;
+        display: block;
+        margin-bottom: 2rem;
+      }
+    }
+    @media (max-width: $medium) {
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: $xs-small) {
+      .content-box {
+        width: 100%;
+      }
+    }
+  }
+  @media (max-width: $medium) {
+    @include Flex(column-reverse, center);
+
+    .services {
+      margin: 0;
+    }
+    .footprint {
+      display: none;
+    }
+    .dashed {
+      margin: 0;
+    }
+    .box-vertical {
+      @include Flex(row, center);
+      margin: 2rem 0;
+      width: 100%;
+    }
+
+    .left {
+      transform: translateX(0) !important;
+    }
+  }
+  @media (max-width: $small) {
+    .dashed {
+      display: none;
+    }
+  }
+}
+
+.dog-box {
+  @include Flex(row, center);
+  width: 800px;
+  margin: 10rem auto 1rem auto;
+  border-radius: 10px;
+  background: #4487ff;
+  img {
+    width: 224px;
+    margin: 10px;
+  }
+  .dog-content {
+    margin-left: 10px;
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+      // color: #ffe530;
+    }
+    p {
+      margin: 20px 10px 20px 0;
+      font-weight: 200;
+      line-height: 1.5;
+      color: $mainColor;
+    }
+  }
+  @media (max-width: $small) {
+    @include Flex(column, center);
+    width: 100%;
+    .dog-content {
+      @include Flex(column, center);
+    }
+    p {
+      padding: 0 1rem;
+    }
+    .dog-btn {
+      margin-bottom: 5px;
+    }
+  }
+}
+.commertial-box {
+  @include Flex(column, center);
+  p {
+    color: #808080;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 2rem 1rem;
+  }
+  .commertial-container {
+    @include Flex(row, center);
+    width: 90%;
+    justify-content: space-evenly;
+    img {
+      max-width: 50px;
+      cursor: pointer;
+    }
+  }
+}

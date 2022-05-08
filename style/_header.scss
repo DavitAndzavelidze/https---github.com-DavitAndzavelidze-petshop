@@ -1,0 +1,160 @@
+@mixin Flex($direction, $justify) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+@import "./variables";
+@import "./btn";
+@import "./media";
+
+body {
+  overflow-x: hidden;
+  background: $backgroundColor;
+}
+
+.bg {
+  width: 150%;
+  height: 970px;
+  margin-top: -20rem;
+  margin-left: -20rem;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  overflow-x: hidden !important;
+  @media (max-width: $medium) {
+    width: 250%;
+  }
+  @media (max-width: $small) {
+    width: 300%;
+  }
+  @media (max-width: $x-small) {
+    width: 400%;
+  }
+}
+.header {
+  max-width: 1450px;
+  margin: 0 auto;
+
+  .navbar {
+    @include Flex(row, space-between);
+    width: 100%;
+    margin-bottom: 3rem;
+    // position: relative;
+    z-index: 10;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+    .logo img {
+      padding: 5px;
+    }
+    ul {
+      @include Flex(row, center);
+    }
+    li {
+      margin-right: 1rem;
+    }
+    .nav__link:focus {
+      outline-style: none;
+    }
+
+    // Navbar Media Query
+    @media (max-width: $x-large) {
+      max-width: 1200px;
+    }
+    @media (max-width: $large) {
+      max-width: 1000px;
+    }
+    @media (max-width: $medium) {
+      ul {
+        display: none;
+      }
+      .logo {
+        margin-left: 5%;
+      }
+      .humburger-container {
+        visibility: visible !important;
+      }
+    }
+    .humburger-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 99;
+      visibility: hidden;
+      span {
+        width: 30px;
+        height: 3px;
+        background: $mainColor;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+.main-box {
+  @include Flex(row, space-between);
+  position: relative;
+  max-width: 1450px;
+  margin: 0 auto;
+  .content {
+    @include Flex(column, flex-start);
+    align-items: flex-start;
+    margin: 4rem 0 10rem 0;
+    color: $mainColor;
+    max-width: 600px;
+    p {
+      line-height: 1.5;
+    }
+  }
+  .btn-box {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .img-dog {
+    width: 400px;
+  }
+  h1 {
+    font-size: 70px;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  p {
+    margin: 20px 0;
+    font-weight: 300;
+  }
+  @media (max-width: $x-large) {
+    max-width: 1200px;
+  }
+  @media (max-width: $large) {
+    max-width: 1000px;
+  }
+  @media (max-width: $medium) {
+    @include Flex(column, center);
+    .img-dog {
+      display: none;
+    }
+    .btn-box {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: $x-small) {
+    .content {
+      padding: 0 2rem;
+    }
+  }
+  @media (max-width: $x-small) {
+    h1 {
+      font-size: 50px;
+    }
+  }
+}
