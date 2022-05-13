@@ -14,8 +14,11 @@ a {
 }
 .sticky {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: rgba($color: #000000, $alpha: 0.6);
-  max-width: 80%;
+  max-width: 100%;
   transition: all 0.3s ease-in;
 }
 .btn {
